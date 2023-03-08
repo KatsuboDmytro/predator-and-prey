@@ -4,35 +4,43 @@ class Prey extends Animal{
 		super(sex, row, col, type);
 	}
 	static bornRabbit(randForSex, row, col, randForType){
-		let sex = "", child, type = '';
-		(randForSex == 1) ? sex = "woman" : (randForSex == 2) ? sex = "man" : sex = undefined;
-		(randForType == 1) ? type = "rabbit" : type = undefined;
-		child = new Rabbit(sex, row, col, type);
-		preys.push(child);
+		if(map[row][col] === undefined){
+			let sex = "", child, type = '';
+			(randForSex == 1) ? sex = "woman" : (randForSex == 2) ? sex = "man" : sex = undefined;
+			(randForType == 1) ? type = "rabbit" : type = undefined;
+			child = new Rabbit(sex, row, col, type);
+			preys.push(child);
+		}
 	}
 
 	static bornBoar(randForSex, row, col, randForType){
-		let sex = "", child, type = '';
-		(randForSex == 1) ? sex = "woman" : (randForSex == 2) ? sex = "man" : sex = undefined;
-		(randForType == 2) ? type = "boar" : type = undefined;
-		child = new Boar(sex, row, col, type);
-		preys.push(child);
+		if(map[row][col] === undefined){
+			let sex = "", child, type = '';
+			(randForSex == 1) ? sex = "woman" : (randForSex == 2) ? sex = "man" : sex = undefined;
+			(randForType == 2) ? type = "boar" : type = undefined;
+			child = new Boar(sex, row, col, type);
+			preys.push(child);	
+		}
 	}
 
 	static bornDeer(randForSex, row, col, randForType){
-		let sex = "", child, type = '';
-		(randForSex == 1) ? sex = "woman" : (randForSex == 2) ? sex = "man" : sex = undefined;
-		(randForType == 3) ? type = "deer" : type = undefined;
-		child = new Deer(sex, row, col, type);
-		preys.push(child);
+		if(map[row][col] === undefined){
+			let sex = "", child, type = '';
+			(randForSex == 1) ? sex = "woman" : (randForSex == 2) ? sex = "man" : sex = undefined;
+			(randForType == 3) ? type = "deer" : type = undefined;
+			child = new Deer(sex, row, col, type);
+			preys.push(child);	
+		}
 	}
 
 	static bornHorse(randForSex, row, col, randForType){
-		let sex = "", child, type = '';
-		(randForSex == 1) ? sex = "woman" : (randForSex == 2) ? sex = "man" : sex = undefined;
-		(randForType == 4) ? type = "horse" : type = undefined;
-		child = new Horse(sex, row, col, type);
-		preys.push(child);
+		if(map[row][col] === undefined){
+			let sex = "", child, type = '';
+			(randForSex == 1) ? sex = "woman" : (randForSex == 2) ? sex = "man" : sex = undefined;
+			(randForType == 4) ? type = "horse" : type = undefined;
+			child = new Horse(sex, row, col, type);
+			preys.push(child);	
+		}
 	}
 
 	get allPreys(){
@@ -76,7 +84,7 @@ class MovePrey extends Prey{
 							map[x][y] = undefined;
 							if(y >= 19) y -= 2;
 							y++;
-							while(map[x][y] instanceof Animal || map[x][y] instanceof Prey){
+							if(map[x][y] !== undefined){
 								y -= 2;
 								if(y >= 19) y -= 2;
 							}
@@ -90,7 +98,7 @@ class MovePrey extends Prey{
 							map[x][y] = undefined;
 							if(x <= 0) x += 2;
 							x--;
-							while(map[x][y] instanceof Animal || map[x][y] instanceof Prey){
+							if(map[x][y] !== undefined){
 								x += 2;
 								if(x <= 0) x += 2;
 							}
@@ -104,7 +112,7 @@ class MovePrey extends Prey{
 							map[x][y] = undefined;
 							if(y <= 0) y += 2;
 							y--;
-							while(map[x][y] instanceof Animal || map[x][y] instanceof Prey){
+							if(map[x][y] !== undefined){
 								y += 2;
 								if(y <= 0) y += 2;
 							}
@@ -118,7 +126,7 @@ class MovePrey extends Prey{
 							map[x][y] = undefined;
 							if(x >= 19) x -= 2;
 							x++;
-							while(map[x][y] instanceof Animal || map[x][y] instanceof Prey){
+							if(map[x][y] !== undefined){
 								x -= 2;
 								if(x >= 19) x -= 2;
 							}

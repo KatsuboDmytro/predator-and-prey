@@ -20,9 +20,9 @@ class Manager{
 
 		setInterval(()=>{
 			MovePredator.move();
-			MovePrey.move();
+			//MovePrey.move();
 			console.log(map);
-		},3000);
+		},5000);
 	}
 
 	createNew(){
@@ -34,7 +34,7 @@ class Manager{
 			Predator.bornLynx(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 3);
 		for(let i = 0; i < howMuchWolfes; i++)
 			Predator.bornWolf(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 4);
-
+/*
 		for(let i = 0; i < howMuchRabbits; i++)
 			Prey.bornRabbit(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 1);
 		for(let i = 0; i < howMuchBoars; i++)
@@ -42,7 +42,7 @@ class Manager{
 		for(let i = 0; i < howMuchDeers; i++)
 			Prey.bornDeer(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 3);
 		for(let i = 0; i < howMuchHorses; i++)
-			Prey.bornHorse(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 4);
+			Prey.bornHorse(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 4);*/
 	}
 }
 /*--------------------------------Animal-------------------------------- */
@@ -80,9 +80,9 @@ class Map extends Animal{
 			let x = predators[k].row, y = predators[k].col;
 			map[x][y] = predators[k];
 		}
-		for(let k = 0; k < preys.length; k++){
+		/*for(let k = 0; k < preys.length; k++){
 			let x = preys[k].row, y = preys[k].col;
 			map[x][y] = preys[k];
-		}
+		}*/
 	}
 }
