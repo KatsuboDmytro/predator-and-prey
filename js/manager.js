@@ -1,4 +1,4 @@
-var map = new Array(20), predators = [], preys = [],
+var map = new Array(70), predators = [], preys = [],
 		howMuchFoxes = 5, howMuchBears = 5, howMuchLynxes = 5, howMuchWolfes = 5,
 		howMuchPredators = howMuchFoxes + howMuchBears + howMuchLynxes + howMuchWolfes;
 
@@ -20,29 +20,31 @@ class Manager{
 
 		setInterval(()=>{
 			MovePredator.move();
-			//MovePrey.move();
+			MovePrey.move();
 			console.log(map);
-		},5000);
+			console.log("predators length = " + predators.length);
+			console.log("preys length = " + preys.length);
+		},100);
 	}
 
 	createNew(){
 		for(let i = 0; i < howMuchFoxes; i++)
-			Predator.bornFox(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 1);
+			Predator.bornFox(Manager.randomNumb(1,2), Manager.randomNumb(0,69), Manager.randomNumb(0,69), 1);
 		for(let i = 0; i < howMuchBears; i++)
-			Predator.bornBear(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 2);
+			Predator.bornBear(Manager.randomNumb(1,2), Manager.randomNumb(0,69), Manager.randomNumb(0,69), 2);
 		for(let i = 0; i < howMuchLynxes; i++)
-			Predator.bornLynx(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 3);
+			Predator.bornLynx(Manager.randomNumb(1,2), Manager.randomNumb(0,69), Manager.randomNumb(0,69), 3);
 		for(let i = 0; i < howMuchWolfes; i++)
-			Predator.bornWolf(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 4);
-/*
+			Predator.bornWolf(Manager.randomNumb(1,2), Manager.randomNumb(0,69), Manager.randomNumb(0,69), 4);
+
 		for(let i = 0; i < howMuchRabbits; i++)
-			Prey.bornRabbit(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 1);
+			Prey.bornRabbit(Manager.randomNumb(1,2), Manager.randomNumb(0,69), Manager.randomNumb(0,69), 1);
 		for(let i = 0; i < howMuchBoars; i++)
-			Prey.bornBoar(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 2);
+			Prey.bornBoar(Manager.randomNumb(1,2), Manager.randomNumb(0,69), Manager.randomNumb(0,69), 2);
 		for(let i = 0; i < howMuchDeers; i++)
-			Prey.bornDeer(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 3);
+			Prey.bornDeer(Manager.randomNumb(1,2), Manager.randomNumb(0,69), Manager.randomNumb(0,69), 3);
 		for(let i = 0; i < howMuchHorses; i++)
-			Prey.bornHorse(Manager.randomNumb(1,2), Manager.randomNumb(0,19), Manager.randomNumb(0,19), 4);*/
+			Prey.bornHorse(Manager.randomNumb(1,2), Manager.randomNumb(0,69), Manager.randomNumb(0,69), 4);
 	}
 }
 /*--------------------------------Animal-------------------------------- */
@@ -68,7 +70,7 @@ class Map extends Animal{
 
 	static theMap(){
 		for (let i = 0; i < map.length; i++)
-			map[i] = new Array(20);
+			map[i] = new Array(70);
 
 		for (var m = 0; m < map.length; m++)
 			for (var n = 0; n < map.length; n++)
@@ -80,9 +82,9 @@ class Map extends Animal{
 			let x = predators[k].row, y = predators[k].col;
 			map[x][y] = predators[k];
 		}
-		/*for(let k = 0; k < preys.length; k++){
+		for(let k = 0; k < preys.length; k++){
 			let x = preys[k].row, y = preys[k].col;
 			map[x][y] = preys[k];
-		}*/
+		}
 	}
 }
