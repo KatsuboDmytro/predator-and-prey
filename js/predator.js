@@ -85,33 +85,6 @@ class MovePredator extends Predator{
 		else if(type == 4) Predator.bornWolf(sex, x, y, type);
 	}
 
-	static eatThePrey(sex, x, y, type){
-		console.log(`Before: ${x}, ${y}`);
-		/*preys.forEach((animal) => {
-			if (animal.x === x && animal.y === y) {
-				preys.splice([animal.x, animal.y], 1);
-				console.log(`animal: ${x}, ${y}`);
-			}
-		});*/
-		/*preys.forEach((row, rowIndex) => {
-			row.forEach((element, columnIndex) => {
-				console.log(`forEach: ${rowIndex}, ${columnIndex}`);
-			  if (element.x === x && element.y === y) {
-				preys[rowIndex].splice(columnIndex, 1);
-				console.log(`animal: ${x}, ${y}`);
-			  }
-			});
-		});*/
-		for (var m = 0; m < map.length; m++) {
-			for (var n = 0; n < map.length; n++) {
-				if (m === x && n === y) {
-					let turupuru = preys.indexOf(map[x][y]);
-					console.log(`turupuru: ${turupuru}`);
-				}
-			}
-		  }
-	}
-
 	static move(){
 		let k = 0, flag = 0, thisIter = howMuchPredators - 1;
 		while(flag != howMuchPredators){
@@ -132,7 +105,7 @@ class MovePredator extends Predator{
 							if(y >= 69) y -= 2;
 							y++;
 							if(map[x][y] instanceof Prey){
-								MovePredator.eatThePrey(sex, x, y, type);
+								Prey.die(x, y);
 							}
 							if(map[x][y] instanceof Predator){
 								y -= 2; x += 1;
@@ -149,7 +122,7 @@ class MovePredator extends Predator{
 							if(x <= 0) x += 2;
 							x--;
 							if(map[x][y] instanceof Prey){
-								MovePredator.eatThePrey(sex, x, y, type);
+								Prey.die(x, y);
 							}
 							if(map[x][y] instanceof Predator){
 								x += 2;  y += 1;
@@ -166,7 +139,7 @@ class MovePredator extends Predator{
 							if(y <= 0) y += 2;
 							y--;
 							if(map[x][y] instanceof Prey){
-								MovePredator.eatThePrey(sex, x, y, type);
+								Prey.die(x, y);
 							}
 							if(map[x][y] instanceof Predator){
 								y += 2;  x += 1;
@@ -183,7 +156,7 @@ class MovePredator extends Predator{
 							if(x >= 69) x -= 2;
 							x++;
 							if(map[x][y] instanceof Prey){
-								MovePredator.eatThePrey(sex, x, y, type);
+								Prey.die(x, y);
 							}
 							if(map[x][y] instanceof Predator){
 								x -= 2;  y += 1;

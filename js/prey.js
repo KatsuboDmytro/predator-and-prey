@@ -63,6 +63,27 @@ class Prey extends Animal{
 		}
 	}
 
+	static die(x, y){
+		console.log(`Before: ${x}, ${y}`);
+		if (map[x][y]) {
+			console.log(map[x][y]);
+			let obj = map[x][y];
+			let by_X = obj.row, by_Y = obj.col;
+			preys.forEach((item, index) => {
+				if(item.row == by_X && item.col == by_Y){
+					preys.slice(index, 1);
+					preys[index] = null;
+					map[x][y] = undefined;
+				}
+			})
+			let filtered = preys.filter((item) => item !== null);
+			preys = filtered;
+			console.log(preys);
+		} else {
+			console.log("No prey found at coordinates (" + x + "," + y + ")");
+		}
+	}
+
 	get allPreys(){
 		return preys;
 	}
@@ -100,7 +121,7 @@ class MovePrey extends Prey{
 
 			if(preys[k] == map[x][y]){
 				switch (rand) {
-					case 1:  //goBack
+					case 1: //goBack
 							map[x][y] = undefined;
 							if(y >= 69) y -= 2;
 							y++;
@@ -114,7 +135,7 @@ class MovePrey extends Prey{
 							flag++;
 							break;
 
-					case 2:  //goLeft
+					case 2: //goLeft
 							map[x][y] = undefined;
 							if(x <= 0) x += 2;
 							x--;
@@ -128,7 +149,7 @@ class MovePrey extends Prey{
 							flag++;
 							break;
 
-					case 3:  //goStraight
+					case 3: //goStraight
 							map[x][y] = undefined;
 							if(y <= 0) y += 2;
 							y--;
@@ -142,7 +163,7 @@ class MovePrey extends Prey{
 							flag++;
 							break;
 
-					case 4:  //goRight
+					case 4: //goRight
 							map[x][y] = undefined;
 							if(x >= 69) x -= 2;
 							x++;
