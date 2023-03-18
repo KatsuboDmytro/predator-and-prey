@@ -62,7 +62,7 @@ class Prey extends Animal{
 			Prey.bornHorse(randForSex, row, col, randForType);
 		}
 	}
-
+	
 	static die(x, y){
 		console.log(`Before: ${x}, ${y}`);
 		if (map[x][y]) {
@@ -73,12 +73,18 @@ class Prey extends Animal{
 				if(item.row == by_X && item.col == by_Y){
 					preys.slice(index, 1);
 					preys[index] = null;
-					map[x][y] = undefined;
+					//map[x][y] = undefined;
 				}
 			})
 			let filtered = preys.filter((item) => item !== null);
+			preys = [];
 			preys = filtered;
+			for(let k = 0; k < preys.length; k++){
+				let x = preys[k].row, y = preys[k].col;
+				map[x][y] = preys[k];
+			}
 			console.log(preys);
+			console.log(predators);
 		} else {
 			console.log("No prey found at coordinates (" + x + "," + y + ")");
 		}
