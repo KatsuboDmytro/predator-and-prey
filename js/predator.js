@@ -1,5 +1,13 @@
+import { Animal } from './manager';
+import { Prey } from './prey';
+import { Bear } from './predators/Bear';
+import { Fox } from './predators/Fox';
+import { Lynx } from './predators/Lynx';
+import { Wolf } from './predators/Wolf';
+import { map } from './manager';
+
 /*--------------------------------Predator-------------------------------- */
-class Predator extends Animal{
+export class Predator extends Animal{
 	constructor(sex, row, col, type) {
 		super(sex, row, col, type);
 	}
@@ -73,7 +81,7 @@ class Predator extends Animal{
 }
 
 /*--------------------------------Move-------------------------------- */
-class MovePredator extends Predator{
+export class MovePredator extends Predator{
 	constructor(sex, row, col, type) {
 		super(sex, row, col, type);
 	}
@@ -136,7 +144,7 @@ class MovePredator extends Predator{
 
 					case 3:  //goStraight
 							map[x][y] = undefined;
-							if(y <= 0) y += 2;
+							if(y <= 0) {y += 2;}
 							y--;
 							if(map[x][y] instanceof Prey){
 								Prey.die(x, y);
@@ -151,22 +159,27 @@ class MovePredator extends Predator{
 							flag++;
 							break;
 
-					case 4:  //goRight
+					case 4: // goRight
 							map[x][y] = undefined;
-							if(x >= 69) x -= 2;
+							if (x >= 69) {
+								x -= 2;
+							}
 							x++;
-							if(map[x][y] instanceof Prey){
+							if (map[x][y] instanceof Prey) {
 								Prey.die(x, y);
 							}
-							if(map[x][y] instanceof Predator){
-								x -= 2;  y += 1;
-								if(x >= 69) {x -= 2;  x -= 2;}
+							if (map[x][y] instanceof Predator) {
+								x -= 2;
+								y += 1;
+								if (x >= 69) {
+									x -= 2;
+								}
 							}
 							MovePredator.bornAnAnimal(sex, x, y, type);
 							predators.shift();
 							map[x][y] = predators[thisIter];
 							flag++;
-							break;
+						break;
 				}
 			}
 		}

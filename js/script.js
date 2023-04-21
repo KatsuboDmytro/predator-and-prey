@@ -1,3 +1,5 @@
+import { Manager } from "./manager";
+
 var manager = new Manager();
 console.log(manager);
 

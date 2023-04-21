@@ -1,5 +1,5 @@
-/*--------------------------------Deer-------------------------------- */
-class Deer extends Prey{
+import { Prey } from "../prey";
+export class Deer extends Prey{
 	constructor(sex, row, col, type) {
 		super(sex, row, col, type);
 	}

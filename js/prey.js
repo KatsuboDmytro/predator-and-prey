@@ -1,5 +1,13 @@
+import { Animal } from './manager';
+import { Predator } from './predator';
+import { Boar } from './preys/Boar';
+import { Deer } from './preys/Deer';
+import { Horse } from './preys/Horse';
+import { Rabbit } from './preys/Rabbit';
+import { map } from './manager';
+
 /*--------------------------------Prey-------------------------------- */
-class Prey extends Animal{
+export class Prey extends Animal{
 	constructor(sex, row, col, type) {
 		super(sex, row, col, type);
 	}
@@ -63,30 +71,21 @@ class Prey extends Animal{
 		}
 	}
 	
-	static die(x, y){
+	static die(x, y) {
 		console.log(`Before: ${x}, ${y}`);
 		if (map[x][y]) {
-			console.log(map[x][y]);
-			let obj = map[x][y];
-			let by_X = obj.row, by_Y = obj.col;
+			let obj = Object.assign({}, map[x][y]);
+			let by_X = obj.row;
+			let by_Y = obj.col;
 			preys.forEach((item, index) => {
-				if(item.row == by_X && item.col == by_Y){
-					preys.slice(index, 1);
-					preys[index] = null;
-					//map[x][y] = undefined;
+				if (item.row === by_X && item.col === by_Y) {
+					console.log(preys[index]);
+					preys.splice(index, 1);
+					console.log(preys);
 				}
-			})
-			let filtered = preys.filter((item) => item !== null);
-			preys = [];
-			preys = filtered;
-			for(let k = 0; k < preys.length; k++){
-				let x = preys[k].row, y = preys[k].col;
-				map[x][y] = preys[k];
-			}
-			console.log(preys);
-			console.log(predators);
+			});
 		} else {
-			console.log("No prey found at coordinates (" + x + "," + y + ")");
+			console.log(`No prey found at coordinates (${x}, ${y})`);
 		}
 	}
 
@@ -100,7 +99,7 @@ class Prey extends Animal{
 }
 
 /*--------------------------------Move-------------------------------- */
-class MovePrey extends Prey{
+export class MovePrey extends Prey{
 	constructor(sex, row, col, type) {
 		super(sex, row, col, type);
 	}

@@ -1,0 +1,55 @@
+:root {
+  --font: "Bungee Spice";
+  --gradient: linear-gradient(180deg, #fdd100fc -6.98%, #d02500fc 57.18%, #ef330695 108.13%);
+  --blue: #013372;
+  --orange: #df6401;
+  --red: #d73a18;
+  --green: #42ff00;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+body {
+  font-family: var(--font);
+  background-image: url("../playbg.a7c9be26.png");
+  background-position: 0 -23px;
+  background-repeat: no-repeat;
+  background-size: 100% 103.1vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -10px;
+  overflow: hidden;
+}
+
+.left {
+  justify-content: space-between;
+  display: flex;
+}
+
+.left_block {
+  width: 500px;
+  height: 103.1vh;
+  background-color: var(--blue);
+  position: relative;
+  right: 100%;
+}
+
+.right_click {
+  width: 40px;
+  height: 290px;
+  background-color: var(--blue);
+  border-bottom-right-radius: 40px;
+  position: relative;
+}
+
+.right_click:hover + .left_block {
+  right: 67.4%;
+}
+
+.right_click:hover {
+  left: 500px;
+}
+
+/*# sourceMappingURL=playzone.00044bfb.css.map */

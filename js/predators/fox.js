@@ -1,5 +1,5 @@
-/*--------------------------------Fox-------------------------------- */
-class Fox extends Predator{
+import { Predator } from "../predator";
+export class Fox extends Predator{
 	constructor(sex, row, col, type) {
 		super(sex, row, col, type);
 	}

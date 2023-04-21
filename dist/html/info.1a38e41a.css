@@ -1,0 +1,156 @@
+:root {
+  --font: "Bungee Spice";
+  --gradient: linear-gradient(180deg, #fdd100fc -6.98%, #d02500fc 57.18%, #ef330695 108.13%);
+  --brown: #cd452d;
+  --orange: #df6401;
+  --red: #d73a18;
+  --green: #42ff00;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.info_location {
+  background-image: url("../IndoBg.0c4801f6.png");
+  background-repeat: no-repeat;
+  background-size: 100% 120vh;
+  overflow: hidden;
+}
+
+.head_part {
+  width: 75%;
+  justify-content: space-around;
+  margin-left: 28%;
+  display: flex;
+}
+
+.head_part header {
+  font-family: var(--font);
+  width: 50%;
+  text-align: center;
+  text-shadow: 0 9px 8px #00000040;
+  padding-top: 50px;
+  font-size: 9.6rem;
+  line-height: 11.5rem;
+}
+
+.head_part a button {
+  width: 200px;
+  height: 60px;
+  font-family: var(--font);
+  color: var(--orange);
+  background: #fff;
+  border: none;
+  border-radius: 55px;
+  margin-top: 50px;
+  font-size: 4rem;
+  line-height: 4.8rem;
+  box-shadow: 0 9px 5px #00000040;
+}
+
+.info_blocks {
+  justify-content: space-around;
+  padding-top: 25px;
+  padding-bottom: 100px;
+  display: flex;
+}
+
+.info_blocks .block {
+  width: 30%;
+}
+
+.info_blocks .block:nth-child(1) {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: #1e581d82;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px #0000001a;
+}
+
+.info_blocks .block:nth-child(2) {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: #bd9d2b7d;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px #0000001a;
+}
+
+.info_blocks .block:nth-child(3) {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: #1d7f9580;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px #0000001a;
+}
+
+.block {
+  padding: 15px;
+  font-family: Prompt, sans-serif;
+}
+
+.small_title {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.small_subtitle {
+  color: var(--orange);
+  padding-top: 20px;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.types_of_them {
+  justify-content: space-around;
+  display: flex;
+}
+
+.predator, .prey {
+  padding-top: 10px;
+}
+
+.who_is_it {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.who_is_it img {
+  height: 22px;
+}
+
+.text {
+  font-size: 2rem;
+}
+
+.description {
+  padding-top: 10px;
+}
+
+.description div {
+  color: #fff;
+}
+
+.description div span {
+  color: var(--green);
+}
+
+.description div, .description div span {
+  padding-bottom: 5px;
+}
+
+/*# sourceMappingURL=info.1a38e41a.css.map */

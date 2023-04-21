@@ -1,5 +1,5 @@
-/*--------------------------------Bear-------------------------------- */
-class Bear extends Predator{
+import { Predator } from "../predator.js";
+export class Bear extends Predator{
 	constructor(sex, row, col, type) {
 		super(sex, row, col, type);
 	}
