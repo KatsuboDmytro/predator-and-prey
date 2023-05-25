@@ -1,47 +1,141 @@
-:root{
-	font-size: 10px;
-	line-height: 10px;
-	--font: 'Bungee Spice';
-	font-weight: 400;
-	--gradient: linear-gradient(180deg, rgba(253, 209, 0, 0.99) -6.98%, rgba(208, 37, 0, 0.99) 57.18%, rgba(239, 51, 6, 0.582862) 108.13%);
-	--blue: #013372;
-	--orange: #DF6401;
-	--red: #D73A18;;
-	--green: #42FF00;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@400;700&family=Ubuntu+Mono:wght@400;700&display=swap');
+
 body{
-	margin: 0;
-	padding: 0;
-	font-family: var(--font);
-	position: relative;
-	top: -10px;
-	background-image: url('../img/playbg.png');
-	background-size: 100% 103.1vh;
-	background-position: 0 -23px;
-	background-repeat: no-repeat;
-	overflow: hidden;
+    background-color: black;
+    color: #ffffff;
+    margin: 0 30px;
 }
-.left{
-	display: flex;
-	justify-content: space-between;
+.notion, .flex-input, .settings, .birthTime, .start, .pause, .clear, .info{
+    font-family: 'Ubuntu Mono', monospace;
 }
-.left_block{
-	position: relative;
-	right: 100%;
-	width: 500px;
-	height: 103.1vh;
-	background-color: var(--blue);
+.setUp{
+    display: flex;
+    justify-content: space-between;
 }
-.right_click{
-	position: relative;
-	width: 40px;
-	height: 290px;
-	background-color: var(--blue);
-	border-bottom-right-radius: 40px;
+.max{
+    display: flex;
+    justify-content: space-around;
 }
-.right_click:hover + .left_block{
-		right: 67.4%;
+.amount, .speed, .birthTime, .start, .pause, .clear{
+    width: 32%;
 }
-.right_click:hover{
-	left: 500px;
+.analutic{
+    width: 50%;
+}
+.hr{
+    border: 1px solid grey;
+    opacity: .5;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.header img{
+    margin: 21.4px 0px;
+    width: 40px;
+    height: 40px;
+    animation: settings 4s infinite;
+    cursor: pointer;
+}
+.Analytics{
+    position: relative;
+}
+.absolute{
+    display: none;
+    position: relative;
+}
+@keyframes settings {
+    0% {
+        transform: rotate(0deg);
+      }
+    
+      100% {
+        transform: rotate(360deg);
+      }
+}
+.info{
+    margin-top: 28px;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 300px;
+}
+.start, .pause, .clear, .samotyzhki{
+    padding: 20px 0px;
+    border-radius: 20px;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+.start:hover, .pause:hover, .clear:hover{
+    transform: scale(1.02);
+}
+.flex-input{
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    margin: 10px;
+}
+.width{
+    width: 500px;
+    justify-content: space-around;
+}
+.notion{
+    display: flex;
+    justify-content: center;
+}
+.settings{
+    text-align: center;
+}
+#defaultCanvas0{
+    border: 2px solid grey;
+}
+input{
+    border-bottom: 1px solid #ffffff;
+    background-color: black;
+    color: #ffffff;
+    padding-left: 15px;
+}
+.pred{
+    color: red;
+}
+.prey{
+    color: rgb(0, 255, 0);
+}
+
+.slider{
+    display: flex;
+    overflow: hidden;
+}
+
+.info_block{
+    display: flex;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+/*Track*/
+::-webkit-scrollbar-track{
+    background: #252323;
+}
+
+/*Handle*/
+::-webkit-scrollbar-thumb{
+    background: #000000;
+}
+
+/*Handle on hover*/
+::-webkit-scrollbar-track:hover{
+    background: #252323;
 }

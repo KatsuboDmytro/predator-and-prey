@@ -4,34 +4,135 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="../css/playzone.css">
 	<link type="image/x-icon" href="../img/deer.png" rel="shortcut icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
 	<title>Predator and Prey</title>
 </head>
 <body>
-	<aside class="left">
-		<section class="right_click">
-			
-		</section>
-		<section class="left_block">
+    <div class="flex">
+        <div class="header">
+            <h3 class="info">info</h3>
+            <img src="../img/sett.png" alt="settings" id="settings">
+        </div>
 
-		</section>
-	</aside>
-	<script type="module" src="../js/apple.js"></script>
-	<script type="module" src="../js/manager.js"></script>
-	<script type="module" src="../js/predator.js"></script>
-		<script type="module" src="../js/predators/fox.js"></script>
-		<script type="module" src="../js/predators/bear.js"></script>
-		<script type="module" src="../js/predators/lynx.js"></script>
-		<script type="module" src="../js/predators/wolf.js"></script>
+        <div class="Analytics absolute">
+            <h1 class="settings">Analytics</h1>
+            <div class="setUp">
+                <div class="analutic">
+                    <h3 class="notion">Загальна кількість &nbsp;<span class="pred">хижаків:</span></h3>
+                    <div class="width flex-input ">
+                        <div class="max">Максимальна: <div class="maxOfPredators">0</div></div> <br>
+                        <div class="max">Мінімальна: <div class="minOfPredators">0</div></div>
+                    </div>
+                </div>
+                <hr class="hr">
+                <div class="analutic">
+                    <h3 class="notion">Загальна кількість &nbsp;<span class="prey">здобичі:</span></h3>
+                    <div class="width flex-input">
+                        <div class="max">Максимальна: <div class="maxOfPreys">0</div></div> <br>
+                        <div class="max">Мінімальна: <div class="minOfPreys">0</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	<script type="module" src="../js/prey.js"></script>
-		<script type="module" src="../js/preys/boar.js"></script>
-		<script type="module" src="../js/preys/deer.js"></script>
-		<script type="module" src="../js/preys/horse.js"></script>
-		<script type="module" src="../js/preys/rabbit.js"></script>
+        <div class="settings_block" id="settings_block">
+            <div style="display: flex; justify-content: space-evenly;;">
+                <h1 class="settings">Settings</h1>
+                <button class="samotyzhki" style="width: 200px; font-size: 16px;">Хочеш ввести усі данні самотужки?</button>
+            </div>
+                <hr class="hr">
+        
+            <div class="setUp">
+                <div class="amount">
+                    <span class="notion">Уведіть початкову кількість здобичі та хижаків <br> на момент першого запуску симуляції:</span>
+                    <div class="flex-input">
+                        <label for="numbOfPredators">numbOf<span class="pred">Predators:</span></label>
+                        <input type="number" value="500" id="numbOfPredators">
+                    </div>
+                    <div class="flex-input">
+                        <label for="numbOfPreys">numbOf<span class="prey">Preys:</span></label>
+                        <input type="number" value="500" id="numbOfPreys">
+                    </div>
+                </div>
+                    <hr class="hr">
+                <div class="speed">
+                    <span class="notion">Швидкість хижака та жертви.<br>Збільшення цього числа збільшує швидкість!</span>
+                    <div class="flex-input">
+                        <label for="predatorSpeedLimit"><span class="pred">predator</span>SpeedLimit:</label>
+                        <input type="number" value="1.5" id="predatorSpeedLimit">
+                    </div>
+                    <div class="flex-input">
+                        <label for="preySpeedLimit"><span class="prey">prey</span>SpeedLimit:</label>
+                        <input type="number" value="10.5" id="preySpeedLimit">
+                    </div>
+                </div>
+                    <hr class="hr">
+                <div class="birthTime">
+                    <span class="notion">Задай скільки років має бути хижаку та жертві. Для успішного розмноження</span>
+                    <div class="flex-input">
+                        <label for="predatorsBirthTime"><span class="pred">predators</span>BirthTime:</label>
+                        <input type="number" value="3.0" id="predatorsBirthTime">
+                    </div>
+                    <div class="flex-input">
+                        <label for="preyBirthTime"><span class="prey">prey</span>BirthTime:</label>
+                        <input type="number" value="2.4" id="preyBirthTime">
+                    </div>
+                </div>
+            </div>
+        
+            <hr class="hr">
+        
+            <div class="setUp">
+                <div class="amount">
+                    <span class="notion">Уведіть час за який можуть протриматися хижаки, перш ніж помруть від голоду:</span>
+                    <div class="flex-input">
+                        <label for="predatorsHungerTime"><span class="pred">predators</span>HungerTime:</label>
+                        <input type="number" value="1.5" id="predatorsHungerTime">
+                    </div>
+                    <div class="flex-input">
+                        <label for="preysHungerTime"><span class="prey">preys</span>HungerTime:</label>
+                        <input type="number" value="1.5" id="preysHungerTime">
+                    </div>
+                </div>
+                    <hr class="hr">
+                <div class="speed">
+                    <span class="notion">Уведіть максимальну кількість здобичі, яка може існувати в симуляції.</span>
+                    <div class="flex-input">
+                        <label for="predatorPopCap"><span class="pred">predator</span>PopCap:</label>
+                        <input type="number" value="4000" id="predatorPopCap">
+                    </div>
+                    <div class="flex-input">
+                        <label for="preyPopCap"><span class="prey">prey</span>PopCap:</label>
+                        <input type="number" value="4000" id="preyPopCap">
+                    </div>
+                </div>
+                    <hr class="hr">
+                <div class="birthTime">
+                    <span class="notion">Задай відстань/радіус на якій тварини зможуть полювати/їсти </span>
+                    <div class="flex-input">
+                        <label for="killPreyRadius"><span class="pred">killPrey</span>Radius:</label>
+                        <input type="number" value="4.5" id="killPreyRadius">
+                    </div>
+                    <div class="flex-input">
+                        <label for="eatPreyFoodRadius"><span class="prey">eatPreyFood</span>Radius:</label>
+                        <input type="number" value="4.5" id="eatPreyFoodRadius">
+                    </div>
+                </div>
+            </div>
+            <hr class="hr">
+        </div>
+    </div>
 
-	<script type="module" src="../js/script.js"></script>
-	
+    <div class="buttons">
+        <button class="start">Start</button>
+        <button class="pause">Pause</button>
+        <button class="clear">Clear</button>
+    </div>
+
+	<script src="../script.js"></script>
 </body>
 </html>
