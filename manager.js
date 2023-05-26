@@ -8,12 +8,12 @@ class Manager {
         document.getElementById('settings').addEventListener('click', listener);
         document.querySelector('.info').addEventListener('click', listener);
         document.querySelector('.samotyzhki').addEventListener('click', () => {
-            numbOfPredators = prompt("numb of them"), numbOfPreys = prompt("numb of them");
-            predatorSpeedLimit = prompt("numb of them"), preySpeedLimit = prompt("numb of them");
-            predatorsBirthTime = prompt("numb of them"), preyBirthTime = prompt("numb of them");
-            predatorsHungerTime = prompt("numb of them"), preysHungerTime = prompt("numb of them");
-            predatorPopCap = prompt("numb of them"), preyPopCap = prompt("numb of them");
-            killPreyRadius = prompt("numb of them");
+            numbOfPredators = prompt("numbOfPredators"), numbOfPreys = prompt("numbOfPreys");
+            predatorSpeedLimit = prompt("predatorSpeedLimit"), preySpeedLimit = prompt("preySpeedLimit");
+            predatorsBirthTime = prompt("predatorsBirthTime"), preyBirthTime = prompt("preyBirthTime");
+            predatorsHungerTime = prompt("predatorsHungerTime"), preysHungerTime = prompt("preysHungerTime");
+            predatorPopCap = prompt("predatorPopCap"), preyPopCap = prompt("preyPopCap");
+            killPreyRadius = prompt("killPreyRadius");
         });
         
         document.querySelector('.start').addEventListener('click', () => running = true);
